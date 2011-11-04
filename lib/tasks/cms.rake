@@ -39,9 +39,12 @@ namespace :cms do
   end
 end
 
-require 'yard'
-YARD::Rake::YardocTask.new do |t|
-  t.options = ['--output-dir', 'doc/api/']
+begin
+  require 'yard'
+  YARD::Rake::YardocTask.new do |t|
+    t.options = ['--output-dir', 'doc/api/']
+  end
+rescue
 end
 
 
@@ -54,4 +57,5 @@ begin
       t.cucumber_opts = ["-f", "Debug::Formatter"]
     end
   end
+rescue
 end
