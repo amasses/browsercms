@@ -50,7 +50,7 @@ Cucumber::Rake::Task.new(:features) do |t|
 end
 
 desc 'Runs all the tests'
-task :test do
+task :test => 'app:test:prepare' do
   tests_to_run = ENV['TEST'] ? ["test:single"] : %w(test:units test:functionals test:integration features)
   errors = tests_to_run.collect do |task|
     begin
@@ -67,6 +67,13 @@ task :test do
   end
 end
 
-#task :test => ['test:units', 'test:functionals', 'test:integration', 'features']
-
 task :default => :test
+
+# Sample tasks to load sample data. This is unworking pseudocode at the moment.
+#task 'db:load' do
+  # `mysql --user=root --password name_of_database < test/dummy/db/backups/name_of_file.sql`
+#end
+
+#task 'db:dump' do
+  # `mysqldump --user=name_of_user --password --database name_of_database > name_of_file.sql`
+#end

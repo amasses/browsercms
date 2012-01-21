@@ -4,11 +4,7 @@ source 'http://rubygems.org'
 gemspec
 
 gem 'jquery-rails'
-gem 'rack', '1.3.3' # At least until 1.3.5 is out. Avoids warnings about already defined constants.
 gem "mysql2"
-
-
-
 gem 'yard', :groups=>[:development, :test]
 gem 'bluecloth', :groups=>[:development, :test] # For YARD
 
@@ -26,4 +22,5 @@ group :test do
   gem 'cucumber'
   gem 'launchy'
   gem 'ruby-prof'
+  gem 'aruba'
 end
