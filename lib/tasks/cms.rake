@@ -38,6 +38,8 @@ namespace :cms do
   end
 end
 
-YARD::Rake::YardocTask.new do |t|
-  t.options = ['--output-dir', 'doc/api/']
+if Object.const_defined?("YARD")
+  YARD::Rake::YardocTask.new do |t|
+    t.options = ['--output-dir', 'doc/api/']
+  end
 end
